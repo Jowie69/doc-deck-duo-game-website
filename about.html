@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Koulen&family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <title>About</title>
+    <style>
+      .loader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 2s ease;
+    }
+
+    .loader {
+      border: 8px solid #3498db;
+      border-top: 8px solid #f4f4f4;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+      .custom-back-button {
+      background-color: #ffff00;
+      color: rgb(56, 56, 56);
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: 'Bangers', cursive;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      outline: none;
+      border: 2px solid #ffff00;
+    }
+
+    .custom-back-button:hover {
+      background-color: #ffff00;
+      color: white;
+    }
+
+    /* Small screens (phones) */
+    @media only screen and (max-width: 600px) {
+      .custom-back-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+      }
+    }
+
+    /* Medium screens (tablets) */
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+      .custom-back-button {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+      }
+    }
+
+    /* Large screens (desktops) */
+    @media only screen and (min-width: 1025px) {
+      .custom-back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+      }
+    }
+    </style>
+  </head>
+  <body>
+      <div class="loader-container" id="loaderContainer">
+    <div class="loader" id="loader"></div>
+  </div>
+  <script>
+    setTimeout(() => {
+      // Add the fade-out class to the loader container after the delay
+      document.getElementById('loaderContainer').classList.add('fade-out');
+      // Stop the loader spin after the delay
+      document.getElementById('loader').style.animation = 'none';
+    }, 3000); // Adjust the delay as needed (in milliseconds)
+  </script>
+    <div id="content" style="display: none;">
+      <header>
+      <audio id="myAudio" autoplay loop>
+        <source src="music/medical.mp3" type="audio/mp3" />
+      </audio>
+
+      <script>
+        // After the loader fades out, show the hidden content
+    setTimeout(() => {
+      document.getElementById('content').style.display = 'block';
+    }, 3000); // Adjust the delay as needed (in milliseconds)
+        var audio = document.getElementById("myAudio");
+        var isPaused = false;
+
+        // Pause the audio when the user leaves the website
+        window.onblur = function () {
+          if (!audio.paused) {
+            audio.pause();
+            isPaused = true;
+          }
+        };
+
+        // Resume playback when the user returns to the website
+        window.onfocus = function () {
+          if (isPaused) {
+            audio.play();
+            isPaused = false;
+          }
+        };
+      </script>
+    <a href="index.html" target="_self" class="custom-back-button">Back</a>
+    <div class="title"><h3>The Faces Behind</h3></div>
+    <div class="wrapper">
+      <div class="slide-wrapper" data-slide="wrapper">
+        <button
+          class="slide-nav-button slide-nav-previous fas fa-chevron-left"
+          data-slide="nav-previous-button"
+        ></button>
+        <button
+          class="slide-nav-button slide-nav-next fas fa-chevron-right"
+          data-slide="nav-next-button"
+        ></button>
+        <div class="slide-list" data-slide="list">
+          <div class="slide-item" data-slide="item" data-index="0">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/12.png" alt="" />
+              <div class="slide-description">
+                <h3>CAPAL, MIKYLA</h3>
+                <p> - THE LEADER</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="1">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/2.png" alt="" />
+              <div class="slide-description">
+                <h3>HERNANDEZ,</h3>
+                <p>CHIELO Q.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="2">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/3.png" alt="" />
+              <div class="slide-description">
+                <h3>GUERRERO,</h3>
+                <p>DANICA J.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="3">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/4.png" alt="" />
+              <div class="slide-description">
+                <h3>Gallardo,</h3>
+                <p>Faye Frances R</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="4">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/5.png" alt="" />
+              <div class="slide-description">
+                <h3>GACHO,</h3>
+                <p>KYNA MARGARET P.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="5">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/6.png" alt="" />
+              <div class="slide-description">
+                <h3>ENERO,</h3>
+                <p>CRISTYL GRACE A.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="6">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/7.png" alt="" />
+              <div class="slide-description">
+                <h3>ELNAR,</h3>
+                <p>FATIMA J.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="7">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/8.png" alt="" />
+              <div class="slide-description">
+                <h3>DIALOGO,</h3>
+                <p>ROCELA B.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="8">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/9.png" alt="" />
+              <div class="slide-description">
+                <h3>CUENTAS,</h3>
+                <p>CAMILLE O.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="9">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/10.png" alt="" />
+              <div class="slide-description">
+                <h3>DEL BARRIO,</h3>
+                <p>SHEENA</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="10">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/11.png" alt="" />
+              <div class="slide-description">
+                <h3>CANARIA,</h3>
+                <p>NICOLE P.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-item" data-slide="item" data-index="11">
+            <div class="slide-content">
+              <img class="slide-image" src="./imgs/1.png" alt="" />
+              <div class="slide-description">
+                <h3>LEGAZPI,</h3>
+                <p>NOWIE LIZA H.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide-controls" data-slide="controls-wrapper"></div>
+      </div>
+    </div>
+    <script src="./js/slides.js"></script>
+    <script>
+      initSlider({
+        autoPlay: true,
+        startAtIndex: 0,
+        timeInterval: 2000,
+      });
+    </script>
+  </body>
+</html>

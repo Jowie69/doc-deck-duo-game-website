@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DocDeckDuo</title>
+    <link rel="icon" href="./img//favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+    .loader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 2s ease;
+    }
+
+    .loader {
+      border: 8px solid #3498db;
+      border-top: 8px solid #f4f4f4;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+    </style>
+  </head>
+  <body>
+  <div class="loader-container" id="loaderContainer">
+    <div class="loader" id="loader"></div>
+  </div>
+  <script>
+    setTimeout(() => {
+      // Add the fade-out class to the loader container after the delay
+      document.getElementById('loaderContainer').classList.add('fade-out');
+      // Stop the loader spin after the delay
+      document.getElementById('loader').style.animation = 'none';
+    }, 3000); // Adjust the delay as needed (in milliseconds)
+  </script>
+    <div id="content" style="display: none;">
+      <header>
+      <audio id="myAudio" autoplay loop>
+        <source src="music/medical.mp3" type="audio/mp3" />
+      </audio>
+
+      <script>
+        // After the loader fades out, show the hidden content
+    setTimeout(() => {
+      document.getElementById('content').style.display = 'block';
+    }, 3000); // Adjust the delay as needed (in milliseconds)
+        var audio = document.getElementById("myAudio");
+        var isPaused = false;
+
+        // Pause the audio when the user leaves the website
+        window.onblur = function () {
+          if (!audio.paused) {
+            audio.pause();
+            isPaused = true;
+          }
+        };
+
+        // Resume playback when the user returns to the website
+        window.onfocus = function () {
+          if (isPaused) {
+            audio.play();
+            isPaused = false;
+          }
+        };
+      </script>
+      <div class="video-container">
+        <video autoplay muted loop>
+          <source src="video/background.mp4" type="video/mp4" />
+        </video>
+        <div class="contenido">
+          <img src="img/logo2.png" alt="Logo" />
+          <a class="noSelect" href="option.html">
+            <div class="button two noSelect">Play</div>
+          </a>
+            <div><pre>
+            </pre></div>
+          <a class="noSelect" href="about.html">
+            <div class="button two noSelect">About</div>
+          </a>
+        </div>
+        
+      </div>
+    </header>
+    </div>
+  </body>
+</html>

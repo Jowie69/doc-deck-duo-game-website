@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Game</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="style2.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Koulen&family=PT+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+          .custom-back-button {
+      background-color: #ffff00;
+      color: rgb(56, 56, 56);
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-family: 'Bangers', cursive;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      outline: none;
+      border: 2px solid #ffff00;
+    }
+
+    .custom-back-button:hover {
+      background-color: #ffff00;
+      color: white;
+    }
+
+    /* Small screens (phones) */
+    @media only screen and (max-width: 600px) {
+      .custom-back-button {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+      }
+    }
+
+    /* Medium screens (tablets) */
+    @media only screen and (min-width: 601px) and (max-width: 1024px) {
+      .custom-back-button {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+      }
+    }
+
+    /* Large screens (desktops) */
+    @media only screen and (min-width: 1025px) {
+      .custom-back-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <a href="option.html" target="_self" class="custom-back-button">Back</a>
+    <main class="main">
+      <header class="header">
+        <nav class="navbar">
+          <a href="#" class="active"></a>
+          <a href="#"></a>
+          <a href="#"></a>
+          <a href="#"></a>
+        </nav>
+      </header>
+      <audio id="myAudio" autoplay loop>
+        <source src="music/The Game Show Theme Music.mp3" type="audio/mp3" />
+      </audio>
+
+      <script>
+        var audio = document.getElementById("myAudio");
+        var isPaused = false;
+
+        // Pause the audio when the user leaves the website
+        window.onblur = function () {
+          if (!audio.paused) {
+            audio.pause();
+            isPaused = true;
+          }
+        };
+
+        // Resume playback when the user returns to the website
+        window.onfocus = function () {
+          if (isPaused) {
+            audio.play();
+            isPaused = false;
+          }
+        };
+      </script>
+
+      <div class="container">
+        <section class="quiz-section">
+        <a href="index.html" target="_self" class="custom-back-button">Back</a>
+          <div class="quiz-box">
+            <h1>The Cardio Vascular System</h1>
+            <div class="quiz-header">
+              <span>Choose the correct answer.</span>
+              <span class="header-score">Score: 0 / 5</span>
+            </div>
+            <h2 class="question-text">Which of the following is not a major blood vessel in the cardiovascular system?</h2>
+            <div class="option-list">
+              <!-- <div class="option">
+                            <span>A. Hyper type multi Language</span>
+                        </div>
+                        <div class="option">
+                            <span>B. Hyper type multiple Language</span>
+                        </div>
+                        <div class="option">
+                            <span>C. Hyper type markup Language</span>
+                        </div>
+                        <div class="option">
+                            <span>D. Home type multi Language</span>
+                        </div> -->
+            </div>
+            <div class="quiz-footer">
+              <span class="question-total">1 of 5 questions</span>
+              <button class="next-btn">Next:</button>
+            </div>
+          </div>
+          <div class="result-box">
+            <h2>Quiz Result!</h2>
+            <div class="percentage-container">
+              <div class="circular-progress">
+                <span class="progress-value">0%</span>
+              </div>
+              <span class="score-test">Ang 'yong iskor ay 0 out of 5</span>
+            </div>
+            <div class="buttons">
+              <button class="try-btn">Try Again</button>
+              <button class="go-btn">Go to home</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="home">
+          <div class="home-content">
+            <h1>Quiz Game</h1>
+            <p>
+              Welcome to CardioQuiz, an interactive platform designed to enrich your understanding of the cardiovascular system through a structured multiple-choice format. Initiate the quiz by selecting the "Start" button, embarking on a discerning journey featuring insightful questions. Meticulously choose the correct responses, monitor your score in real-time, and receive immediate feedback on your performance.
+            </p>
+            <button class="start-btn">Start</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="popup-info">
+      <h2>Quiz Guide</h2>
+      <span class="info"
+        >1.Begin Quiz by clicking the "Start" button on the website.
+      </span>
+      <span class="info"
+        >2. Select the most fitting answer from the provided options for each question.
+      </span>
+      <span class="info"
+        >3. Monitor your real-time score at the top of the quiz box.</span
+      >
+      <span class="info"
+        >4. Correct answers are highlighted in green, providing instant validation.
+      </span>
+      <span class="info"
+        >5. View your final score and percentage in the result box upon quiz completion.</span
+      >
+      <span class="info"
+        >6. Click "Try Again" to reattempt the quiz and enhance your Cardio IQ.
+      </span>
+
+      <div class="btn-group">
+        <button class="info-btn exit-btn">Return</button>
+        <a href="#" class="info-btn continue-btn">Let's Go!</a>
+      </div>
+    </div>
+
+    <script src="./question.js"></script>
+    <script src="./script2.js"></script>
+  </body>
+</html>
